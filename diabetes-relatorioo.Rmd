@@ -1,0 +1,30 @@
+---
+title: "diabetes-relatorio"
+output: pdf_document
+date: "2023-03-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Obtenção dos dados
+```{r}
+diabetes <- read.csv(
+  file = "C:/Users/carol/Documents/diabetess.csv"
+)
+
+head(diabetes)
+```
+
+# Preparação dos dados
+```{r messaage=FALSE, warning=FALSE}
+
+diabetes$Outcome <- as.factor(diabetes$Outcome)
+
+library(dplyr)
+
+diabetes2 <- diabetes %>%
+  filter(Insulin <=250)
+
+```
+
